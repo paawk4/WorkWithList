@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WorkWithList
 {
@@ -14,30 +11,34 @@ namespace WorkWithList
 
             while (true)
             {
-                for (int i = 0; i < list.Count; i++)
-                {
-                    Console.WriteLine(list[i]); // вывод листа
-                }
+                OutPutList(list); // вывод листа
 
                 Console.WriteLine("Что хотите сделать?\n" +
                     "1. Отсортировать по алфавиту\n" +
                     "2. Добавить элемент");
                 int index = int.Parse(Console.ReadLine());
 
-                if (index == 1)
+                switch (index)
                 {
-                    list.Sort(); // сортировка
-                }
-                else if (index == 2)
-                {
-                    list.Add(Console.ReadLine()); // добавление элемента
-                }
-                else
-                {
-                    Console.WriteLine("Введите другие значения");
+                    case 1:
+                        list.Sort(); // сортировка
+                        break;
+                    case 2:
+                        list.Add(Console.ReadLine()); // добавление элемента
+                        break;
+                    default:
+                        Console.WriteLine("Введите другие значения");
+                        break;
                 }
             }
-            Console.WriteLine("Недостижимый код");
+        }
+
+        private static void OutPutList(List<string> list)
+        {
+            foreach (string item in list)
+            {
+                Console.WriteLine(item); ;
+            }
         }
     }
 }
